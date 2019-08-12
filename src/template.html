@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width,initial-scale=1.0'>
+	%sapper.base%
+	%sapper.styles%
+	%sapper.head%
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			border: none;
+			box-sizing: border-box;
+			font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+		}
+		#app {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id='app'>%sapper.html%</div>
+	%sapper.scripts%
+</body>
+</html>
