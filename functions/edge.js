@@ -1,7 +1,7 @@
 const sirv = require('sirv');
 const polka = require('polka'); // Spin up a polka server with sirv and compression
 const compression = require('compression');
-import middleware from '@sapper/server'; // Import the sapper middleware
+const sapper = require('sapper/server'); // Import the sapper middleware
 const serverless = require('serverless-http'); // Serverless HTTP Connections
 
 const { PORT, NODE_ENV } = process.env;
@@ -14,7 +14,7 @@ const app = polka().use(
 	sirv('static', {
 		dev
 	}),
-	middleware()
+	sapper.middleware()
 ).listen(PORT, err => {
 	if (err) console.log('error', err);
 });

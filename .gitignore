@@ -20,3 +20,4 @@ jspm_packages/
 .DS_Store
 src/node_modules/@sapper/
 .serverless
+__sapper__/
