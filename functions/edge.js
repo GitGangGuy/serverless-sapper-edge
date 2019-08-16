@@ -1,7 +1,7 @@
 const sirv = require('sirv');
 const polka = require('polka'); // Spin up a polka server with sirv and compression
 const compression = require('compression');
-const sapper = require('sapper/server'); // Import the sapper middleware
+const sapper = require('@sapper/server'); // Import the sapper middleware
 const serverless = require('serverless-http'); // Serverless HTTP Connections
 
 const { PORT, NODE_ENV } = process.env;
