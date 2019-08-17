@@ -11,12 +11,12 @@
     "start": "node __sapper__/build",
     "quick": "yarn run build && yarn run start",
     "local": "serverless invoke local -f ssr",
-    "launch": "yarn run build && yarn run local",
     "predeploy": "yarn run build",
     "deploy": "serverless deploy"
   },
   "dependencies": {
     "compression": "^1.7.1",
+    "express": "^4.17.1",
     "polka": "next",
     "serverless-http": "^2.0.2",
     "sirv": "^0.4.0"
