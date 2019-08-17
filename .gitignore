@@ -21,3 +21,4 @@ jspm_packages/
 src/node_modules/@sapper/
 .serverless
 __sapper__/
+functions/__sapper__/

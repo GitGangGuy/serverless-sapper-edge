@@ -33,6 +33,18 @@ plugins:
   - '@silvermine/serverless-plugin-cloudfront-lambda-edge'
   - 'serverless-scriptable-plugin'
 
+custom:
+  scriptHooks:
+    before:package:createDeploymentArtifacts: npm run build
+    before:invoke:local:invoke: npm run build
+    before:deploy:deploy: 
+      - aws s3 cp --recursive ./__sapper__/build/client/ s3://sapper-edge-bucket/client/ --cache-control "max-age=31536000,public,immutable"
+      - aws s3 cp --recursive ./static/ s3://sapper-edge-bucket/static/ --cache-control "max-age=31536000,public,immutable"
+
+package:
+  individually: true
+  excludeDevDependencies: true
+
 functions:
   ssr:
     handler: functions/edge.server
@@ -45,7 +57,7 @@ functions:
       eventType: 'origin-request'
     package:
       include:
-        - "server/edge.js"
+        - "functions/edge.js"
 
 resources:
   Resources:
@@ -110,7 +122,7 @@ resources:
                 QueryString: false
                 Cookies:
                   Forward: none
-              ViewerProtocolPolicy: 'https-only'
+              ViewerProtocolPolicy: 'redirect-to-https'
               MinTTL: 31536000
               DefaultTTL: 31536000
               MaxTTL: 31536000
@@ -125,7 +137,7 @@ resources:
                 QueryString: false
                 Cookies:
                   Forward: none
-              ViewerProtocolPolicy: 'https-only'
+              ViewerProtocolPolicy: 'redirect-to-https'
               MinTTL: 31536000
               DefaultTTL: 31536000
               MaxTTL: 31536000
@@ -140,7 +152,7 @@ resources:
                 QueryString: false
                 Cookies:
                   Forward: none
-              ViewerProtocolPolicy: 'https-only'
+              ViewerProtocolPolicy: 'redirect-to-https'
               MinTTL: 31536000
               DefaultTTL: 31536000
               MaxTTL: 31536000
@@ -155,7 +167,7 @@ resources:
                 QueryString: false
                 Cookies:
                   Forward: none
-              ViewerProtocolPolicy: 'https-only'
+              ViewerProtocolPolicy: 'redirect-to-https'
               MinTTL: 31536000
               DefaultTTL: 31536000
               MaxTTL: 31536000
@@ -170,7 +182,7 @@ resources:
                 QueryString: false
                 Cookies:
                   Forward: none
-              ViewerProtocolPolicy: 'https-only'
+              ViewerProtocolPolicy: 'redirect-to-https'
               MinTTL: 31536000
               DefaultTTL: 31536000
               MaxTTL: 31536000
@@ -185,7 +197,7 @@ resources:
                 QueryString: false
                 Cookies:
                   Forward: none
-              ViewerProtocolPolicy: 'https-only'
+              ViewerProtocolPolicy: 'redirect-to-https'
               MinTTL: 31536000
               DefaultTTL: 31536000
               MaxTTL: 31536000
