@@ -1,15 +1,23 @@
 # SapperEdge for the serverless framework
 This is a template for your next sapper deployment on AWS.
 There is literally nothing similar out there to host Sapper **at the Edge** on AWS,
-so I had to take the chance.
+so I officially wasted my time & money on this. Thank me later.
 
 ## Usage
 Just clone this repo and you're good to go. 
 Default Sapper commands (`dev`, `export`, `build` and `start`) are included
 as well as `deploy` and `local` for testing and deploying over the serverless cli.
-Make sure to download and initialize the serverless cli first.
+Make sure to download and initialize (`serverless init`) the serverless cli first.
+If you're planning to launch multiple Sapper@Edge projects, you'll want to rename all `sapper` occourences
+in the serverless.yml with something more descriptive.
 
-# Have Fun :)
-  
-### At the time of writing, publication fails due to the `import` statement in functions/edge.js .
-### StackOverflow to the rescue!!!
+## Saying thank you
+This is the part where I'll say thanks to all people who've published similar projects I used as a foundation for my own.  
+This is my first project with hosting sapper and serverless architecture coding, so obviously this took me longer than expected.
+Thank you, 
+ * [ivarvermeulen](https://github.com/ivarvermeulen/nuxt-serverless-at-edge) - Foundation for the serverless.yml
+ * [alexdilley](https://github.com/alexdilley/sapper-serverless-template) - Figuring out what has to land in the S3 bucket and what stays local
+ * [Eckhardt](https://dev.to/eckhardtd/how-to-host-a-sapper-js-ssr-app-on-firebase-hmb) - Exporting the sapper middleware and accessing it
+
+## Enjoy ;)
+If there are any problems related specifically with this template, go open an issue.
