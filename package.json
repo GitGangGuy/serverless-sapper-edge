@@ -3,6 +3,7 @@
   "name": "sapperedge",
   "description": "Sapper + Serverless@Edge Template",
   "version": "0.0.1",
+  "license": "WTFPL 2.0",
   "scripts": {
     "dev": "sapper dev",
     "prebuild": "rimraf - functions/__sapper__/build && mkdirp functions/__sapper__/build",
