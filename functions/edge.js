@@ -1,10 +1,10 @@
 const sirv = require('sirv');
-// const server = require('polka'); // Currently no polka support with serverless-http
-const server = require('express');
+const server = require('polka');
 const compression = require('compression');
-const { sapper } = require('./__sapper__/build/server/server'); // Import the sapper middleware
 const serverless = require('serverless-http'); // Serverless HTTP Connections
-const app = server();
+global.isExport = true;
+const { sapper } = require('./__sapper__/build/server/server'); // Import the sapper middleware
+var app = server();
 
 app.use(
 	compression({

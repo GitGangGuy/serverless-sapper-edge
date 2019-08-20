@@ -6,7 +6,7 @@ import * as sapper from '@sapper/server';
 const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 
-if (dev) {
+if (typeof global.isExport === 'undefined' || global.isExport === null) {
 	polka().use(
 		compression({ threshold: 0 }),
 		sirv('static', { dev }),
@@ -16,4 +16,4 @@ if (dev) {
 	});
 }
 
-export { sapper };
+module.exports = global.isExport ? { sapper } : {};
