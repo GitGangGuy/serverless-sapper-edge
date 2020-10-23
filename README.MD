@@ -1,3 +1,9 @@
+# WARNING
+This repository isn't being maintained anymore and the serverless.yml file is known to not work anymore. If you've fixed the issues yourself, consider publishing the changes in a fork for others to learn from! Thanks.
+**The repo has been archived.**
+
+------------------------------------------------------------------
+
 # SapperEdge for the serverless framework
 This is a template for your next sapper deployment on AWS.
 There is literally nothing similar out there to host Sapper **at the Edge** on AWS,
